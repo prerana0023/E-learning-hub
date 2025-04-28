@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - E-Learning Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+    }
+
+    /* Header Section */
+    header {
+      background-color: #2575fc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    /* Navigation Menu Styling */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+    }
+    nav a:hover {
+      background: #ff6600;
+      transform: scale(1.1);
+    }
+
+    /* Main Content Styling */
+    main {
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    /* Stats Section Styling */
+    .stats {
+      width: 48%;
+      background-color: rgb(234, 119, 119);
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .stats h2 {
+      margin-bottom: 15px;
+      color: #09090a;
+    }
+
+    .stat-item {
+      margin: 10px 0;
+    }
+
+    .stat-item p {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .stat-item h3 {
+      margin: 5px 0;
+    }
+
+    /* Management Section Styling */
+    .management-section {
+      width: 48%;
+      background-color: rgb(160, 47, 47);
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .management-section h2 {
+      margin-bottom: 15px;
+      color: #0f1010;
+    }
+
+    .management-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .management-section li {
+      background-color: #f1f1f1;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .management-section li:hover {
+      background-color: #007bff;
+      color: white;
+    }
+
+    /* Footer Section */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #2575fc;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard - E-Learning Hub</h1>
+    <nav>
+      <a href="manage-books.html">Manage Books</a>
+      <a href="manage-users.html">Manage Users</a>
+      <a href="view-reviews.html">View Reviews</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Dashboard Stats Section -->
+    <section class="stats">
+      <h2>Overview</h2>
+      <div class="stat-item">
+        <h3>Total Users</h3>
+        <p>150</p>
+      </div>
+      <div class="stat-item">
+        <h3>Total Books</h3>
+        <p>120</p>
+      </div>
+      <div class="stat-item">
+        <h3>Total Reviews</h3>
+        <p>50</p>
+      </div>
+    </section>
+
+    <!-- Book Management Section -->
+    <section class="management-section">
+      <h2>Manage Books</h2>
+      <ul>
+        <li><a href="add-book.html">Add New Book</a></li>
+        <li><a href="edit-book.html">Edit Existing Book</a></li>
+        <li><a href="delete-book.html">Delete Book</a></li>
+      </ul>
+    </section>
+
+    <!-- User Management Section -->
+    <section class="management-section">
+      <h2>Manage Users</h2>
+      <ul>
+        <li><a href="view-users.html">View All Users</a></li>
+        <li><a href="edit-user.html">Edit User Details</a></li>
+        <li><a href="delete-user.html">Delete User</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Premier University E-Learning Hub</p>
+  </footer>
+</body>
+</html>

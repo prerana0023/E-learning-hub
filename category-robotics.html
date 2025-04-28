@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics Books</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header-box {
+      background: linear-gradient(135deg, #007bff, #00d4ff);
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin: 20px auto;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .header-box h1 {
+      margin: 0;
+    }
+
+    .header-box nav a {
+      background: white;
+      color: #007bff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .header-box nav a:hover {
+      background: #0056b3;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .book-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(154, 149, 223, 0.9);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .book-container:hover {
+      transform: scale(1.02);
+    }
+
+    .book-item {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      transition: 0.3s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .book-item:hover {
+      background: rgba(0, 123, 255, 0.1);
+    }
+
+    .book-item img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .book-info {
+      flex: 1;
+    }
+
+    .book-item button, .book-item a {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .book-item button:hover, .book-item a:hover {
+      background: #0056b3;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-box">
+      <h1>Robotics Books</h1>
+      <nav>
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="book-container">
+      <h2>Available Books</h2>
+      <div id="book-list"></div>
+    </div>
+  </main>
+
+  <script>
+    const books = [
+      { 
+        title: "Introduction to Autonomous Robots", 
+        author: "Nikolaus Correll, Bradley Hayes, and David Wettergreen", 
+        details: "A comprehensive introduction to the fundamental concepts of robotics, including perception, control, and planning.", 
+        img: "https://m.media-amazon.com/images/I/717FEAdg3dL._SY385_.jpg",
+        link: "https://www.amazon.com/Introduction-Autonomous-Robots-Mechanisms-Algorithms/dp/0262047551/ref=sr_1_1?dib=eyJ2IjoiMSJ9.j4fGxV_qWI2OfGJAG2HM7PdBW4t9KoP1nN6XBCZcR_bazFJkGDteNtUMfUZlN48hxEbVy7Am-VAZ8CkhZiGQ3JKv5sjCbyRKIn1E4Qkv1jWgiAioU7yD5qShCR_YoBEM1NncuZMpaQGGrspT0U0eTnrwhWsHUeHPWKHYXghdavhYHm6VFXAhbXADN0oqp7ixuvmaPVRi0Nb4qtbrSPiZwrxbasZD2VDZqw-Wj-5lvyE.IYAPyQM-8ypKeVgOcvWF53K51bTiaOt9SUtFkXlQtFc&dib_tag=se&keywords=Introduction+to+Autonomous+Robots&qid=1741534957&sr=8-1"
+      },
+      { 
+        title: "Robot Modeling and Control", 
+        author: "Mark W. Spong, Seth Hutchinson, M. Vidyasagar", 
+        details: "An essential resource for learning about kinematics, dynamics, and control of robotic systems.", 
+        img: "https://m.media-amazon.com/images/I/71GsoV1YIsL._SY466_.jpg",
+        link: "https://www.amazon.com/Robot-Modeling-Control-Mark-Spong/dp/1119523990/ref=sr_1_1?crid=24TN9F40TUHKM&dib=eyJ2IjoiMSJ9.4AwfhMvsDEzQeofI34yuSl-wP_J-1GlJ00HVQ5dl-Vf9YAt46e5rrwbMA8FmKmlFVXHtL3sGadLo0y8DdNXnQtTh4ctJm_-1tJ9Ubh96xl6WaubQJ9onV2B-Bs8rVAl61hxziwwTnNrscBI6N6XWycnRfl2xIbL6OZE592vNTUW6C24_x961pNbGo8k8kUF8Dz5WWzGxdr6QOm4UfEpmaBcy851de3GN0Cn5VaOdQTA.QxGoD0qDvhRJJwMWnkAF6LI4f8nVh4D77So8kfsF1TQ&dib_tag=se&keywords=Robot+Modeling+and+Control&qid=1741535043&sprefix=robot+modeling+and+control%2Caps%2C840&sr=8-1"
+      },
+      { 
+        title: "Probabilistic Robotics", 
+        author: "Sebastian Thrun, Wolfram Burgard, Dieter Fox", 
+        details: "A leading book on the probabilistic methods used in robotic perception and decision-making.", 
+        img: "https://m.media-amazon.com/images/I/41KlEnTbxHL._SX342_SY445_.jpg",
+        link: "https://www.amazon.com/Probabilistic-Robotics-INTELLIGENT-ROBOTICS-AUTONOMOUS/dp/0262201623/ref=sr_1_1?crid=EB1VW5K2REC7&dib=eyJ2IjoiMSJ9.qwwDlERdIBCdn3lqPSWwp13VgHy8ISFSaM_TfkEZoJANSlhjqr8ebE300kT-BN6wIcmHqMmadcMVnXn45-fO1-CWkWB7XHZExy0UQ-X5LmncVIsRd2bN-KdZKD1hWETFNdh_89NzWIll78t7dQI9EOz9Hbhlsm4wdJELvVKQfq5-6xnePGcMsm1dz1NHJJ1cIjae62TUqGmv2v-Rwk9axM3LDgYhGJl96_bLpSBISjc.DbLG_Sg7C5TL4albG6rHolE7j1iNwLmxbkWQM7dBYzQ&dib_tag=se&keywords=Probabilistic+Robotics&qid=1741535086&sprefix=probabilistic+robotics%2Caps%2C602&sr=8-1"
+      }
+    ];
+
+    function loadBooks() {
+      const bookList = document.getElementById("book-list");
+      books.forEach(book => {
+        const bookItem = document.createElement("div");
+        bookItem.classList.add("book-item");
+        bookItem.innerHTML = `
+          <img src="${book.img}" alt="${book.title}">
+          <div class="book-info">
+            <h3>${book.title}</h3>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p>${book.details}</p>
+            <a href="${book.link}" target="_blank">Read/Buy</a>
+            <button onclick="saveBook('${book.title}')">Save Book</button>
+          </div>
+        `;
+        bookList.appendChild(bookItem);
+      });
+    }
+
+    function saveBook(title) {
+      alert(`"${title}" has been saved!`);
+    }
+
+    window.onload = loadBooks;
+  </script>
+</body>
+</html>

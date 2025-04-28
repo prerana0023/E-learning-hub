@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Networking Books</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header-box {
+      background: linear-gradient(135deg, #007bff, #00d4ff);
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin: 20px auto;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .header-box h1 {
+      margin: 0;
+    }
+
+    .header-box nav a {
+      background: white;
+      color: #007bff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .header-box nav a:hover {
+      background: #0056b3;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .book-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(154, 149, 223, 0.9);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .book-container:hover {
+      transform: scale(1.02);
+    }
+
+    .book-item {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      transition: 0.3s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .book-item:hover {
+      background: rgba(0, 123, 255, 0.1);
+    }
+
+    .book-item img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .book-info {
+      flex: 1;
+    }
+
+    .book-item button, .book-item a {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .book-item button:hover, .book-item a:hover {
+      background: #0056b3;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-box">
+      <h1>Networking Books</h1>
+      <nav>
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="book-container">
+      <h2>Available Books</h2>
+      <div id="book-list"></div>
+    </div>
+  </main>
+
+  <script>
+    const books = [
+      { 
+        title: "Computer Networking: A Top-Down Approach", 
+        author: "James F. Kurose, Keith W. Ross", 
+        details: "A comprehensive introduction to networking, covering layered architectures, protocols, and modern networking technologies.", 
+        img: "https://m.media-amazon.com/images/I/41PRw50Qa-L._SX342_SY445_.jpg",
+        link: "https://www.amazon.com/Computer-Networking-Top-Down-Approach-7th/dp/0133594149"
+      },
+      { 
+        title: "Data Communications and Networking", 
+        author: "Behrouz A. Forouzan", 
+        details: "An essential book on data communications, covering network protocols, TCP/IP, and network security concepts.", 
+        img: "https://m.media-amazon.com/images/I/51Q4FQblduL._SX342_SY445_.jpg",
+        link: "https://www.amazon.com/Data-Communications-Networking-5th-Behrouz/dp/0073376221"
+      },
+      { 
+        title: "Computer Networks", 
+        author: "Andrew S. Tanenbaum, David J. Wetherall", 
+        details: "A detailed guide to networking principles, explaining protocols, architectures, and real-world networking challenges.", 
+        img: "https://m.media-amazon.com/images/I/41bdzcfQKbL._SX342_SY445_.jpg",
+        link: "https://www.amazon.com/Computer-Networks-5th-Andrew-Tanenbaum/dp/0132126958"
+      }
+    ];
+
+    function loadBooks() {
+      const bookList = document.getElementById("book-list");
+      books.forEach(book => {
+        const bookItem = document.createElement("div");
+        bookItem.classList.add("book-item");
+        bookItem.innerHTML = `
+          <img src="${book.img}" alt="${book.title}">
+          <div class="book-info">
+            <h3>${book.title}</h3>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p>${book.details}</p>
+            <a href="${book.link}" target="_blank">Read/Buy</a>
+            <button onclick="saveBook('${book.title}')">Save Book</button>
+          </div>
+        `;
+        bookList.appendChild(bookItem);
+      });
+    }
+
+    function saveBook(title) {
+      alert(`"${title}" has been saved!`);
+    }
+
+    window.onload = loadBooks;
+  </script>
+</body>
+</html>

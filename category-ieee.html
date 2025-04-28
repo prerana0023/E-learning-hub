@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IEEE Books</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header-box {
+      background: linear-gradient(135deg, #007bff, #00d4ff);
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin: 20px auto;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .header-box h1 {
+      margin: 0;
+    }
+
+    .header-box nav a {
+      background: white;
+      color: #007bff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .header-box nav a:hover {
+      background: #0056b3;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .book-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(154, 149, 223, 0.9);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .book-container:hover {
+      transform: scale(1.02);
+    }
+
+    .book-item {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      transition: 0.3s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .book-item:hover {
+      background: rgba(0, 123, 255, 0.1);
+    }
+
+    .book-item img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .book-info {
+      flex: 1;
+    }
+
+    .book-item button, .book-item a {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .book-item button:hover, .book-item a:hover {
+      background: #0056b3;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-box">
+      <h1>IEEE Books</h1>
+      <nav>
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="book-container">
+      <h2>Available Books</h2>
+      <div id="book-list"></div>
+    </div>
+  </main>
+
+  <script>
+    const books = [
+      { 
+        title: "Demystifying Deep Learning: An Introduction to the Mathematics of Neural Networks", 
+        author: "Douglas J. Santry", 
+        details: "Discover how to train Deep Learning models by learning how to build real Deep Learning software libraries and verification software!",
+        img: "https://m.media-amazon.com/images/I/61DFCcm5BkL._AC_UL480_FMwebp_QL65_.jpg",
+        link: "https://www.amazon.com/s?k=Demystifying+Deep+Learning%3A+An+Introduction+to+the+Mathematics+of+Neural+Networks"
+      },
+      { 
+        title: "Fundamentals of Computational Intelligence: Neural Networks, Fuzzy Systems, and Evolutionary Computation", 
+        author: "James M. Keller, Derong Liu, David B. Fogel", 
+        details: "Provides an in-depth and even treatment of the three pillars of computational intelligence and how they relate to one another.",
+        img: "https://m.media-amazon.com/images/I/610eoF2CX4L._SY466_.jpg",
+        link: "https://www.amazon.com/Fundamentals-Computational-Intelligence-Evolutionary-Computation/dp/1119214343/ref=sr_1_1?dib=eyJ2IjoiMSJ9.9tNNI_JV5C_IlrCNKkCOmA.1wHIymH3r13YaM7CwysKLNzEPJoap6AwwmDFHJ48MQI&dib_tag=se&keywords=Fundamentals+of+Computational+Intelligence%3A+Neural+Networks%2C+Fuzzy+Systems%2C+and+Evolutionary+Computation&qid=1741533721&sr=8-1"
+      },
+      { 
+        title: "Engineered to Speak: Helping You Create and Deliver Engaging Technical Presentations", 
+        author: "Alexa S. Chilcutt, Adam J. Brooks", 
+        details: "Learn how to create and deliver engaging presentations in the technical domain.",
+        img: "https://m.media-amazon.com/images/I/51SS4izvlSL._SY466_.jpg",
+        link: "https://www.amazon.com/Engineered-Speak-Process-Driven-Professional-Communication/dp/1119474965/ref=sr_1_1?crid=24MWHH97T6NVR&dib=eyJ2IjoiMSJ9.GPlRKxCQyY6hIzoogmf86Q.1DCDCAPxZ79u66yd_-OvZ3-dUsInSh-TZ59xVUihO9Y&dib_tag=se&keywords=Engineered+to+Speak%3A+Helping+You+Create+and+Deliver+Engaging+Technical+Presentations&qid=1741533785&sprefix=engineered+to+speak+helping+you+create+and+deliver+engaging+technical+presentations%2Caps%2C302&sr=8-1"
+      }
+    ];
+
+    function loadBooks() {
+      const bookList = document.getElementById("book-list");
+      books.forEach(book => {
+        const bookItem = document.createElement("div");
+        bookItem.classList.add("book-item");
+        bookItem.innerHTML = `
+          <img src="${book.img}" alt="${book.title}">
+          <div class="book-info">
+            <h3>${book.title}</h3>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p>${book.details}</p>
+            <a href="${book.link}" target="_blank">Read/Buy</a>
+            <button onclick="saveBook('${book.title}')">Save Book</button>
+          </div>
+        `;
+        bookList.appendChild(bookItem);
+      });
+    }
+
+    function saveBook(title) {
+      alert(`"${title}" has been saved!`);
+    }
+
+    window.onload = loadBooks;
+  </script>
+</body>
+</html>
